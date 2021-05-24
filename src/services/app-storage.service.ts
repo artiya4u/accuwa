@@ -1,4 +1,4 @@
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Mapping, Theme } from './theme.service';
 
 const MAPPING_KEY: string = 'mapping';

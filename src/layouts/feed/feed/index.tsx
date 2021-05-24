@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {ImageBackground, ListRenderItemInfo, StyleSheet, TouchableOpacity, View} from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Card, List, Text} from '@ui-kitten/components';
 import {AddIcon, CaptureIcon, RateIcon} from './extra/icons';
 import {WatchService} from '../../../services/watch.service';
