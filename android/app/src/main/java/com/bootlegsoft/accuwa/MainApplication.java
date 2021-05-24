@@ -9,7 +9,7 @@ import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
-import com.bootlegsoft.accuwa.splash.SplashScreenPackage;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Arrays;
@@ -31,7 +31,6 @@ public class MainApplication extends Application implements ReactApplication {
         protected List<ReactPackage> getPackages() {
           @SuppressWarnings("UnnecessaryLocalVariable")
           List<ReactPackage> packages = new PackageList(this).getPackages();
-          packages.add(new SplashScreenPackage());
 
           // Add unimodules
           List<ReactPackage> unimodules = Arrays.<ReactPackage>asList(

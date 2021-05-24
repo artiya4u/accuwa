@@ -15,6 +15,7 @@
 		3DE4DAD41476765101945408 /* libPods-accuwa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D43FF9D506E70904424FA7E9 /* libPods-accuwa.a */; };
 		9B681C55E6874CBF9FC5064D /* opensans-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8E7E14A50964D7E8D245E25 /* opensans-regular.ttf */; };
 		CE44FFFAAB90459FA524E097 /* roboto-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D54A57879B074B9A92968DDF /* roboto-regular.ttf */; };
+		9D13FFD275CD40BBACD0FC44 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6265CF6B83344BCE969C3477 /* SplashScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		D54A57879B074B9A92968DDF /* roboto-regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "roboto-regular.ttf"; path = "../src/assets/fonts/roboto-regular.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		6265CF6B83344BCE969C3477 /* SplashScreen.storyboard */ = {isa = PBXFileReference; name = "SplashScreen.storyboard"; path = "accuwa/SplashScreen.storyboard"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = file.storyboard; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				6265CF6B83344BCE969C3477 /* SplashScreen.storyboard */,
 			);
 			name = accuwa;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				9B681C55E6874CBF9FC5064D /* opensans-regular.ttf in Resources */,
 				CE44FFFAAB90459FA524E097 /* roboto-regular.ttf in Resources */,
+				9D13FFD275CD40BBACD0FC44 /* SplashScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
