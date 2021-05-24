@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Kitten Tricks</string>
+	<string>Accuwa</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -38,27 +38,27 @@
 		</dict>
 	</dict>
 	<key>NSCalendarsUsageDescription</key>
-	<string>Allow Kitten Tricks to access your calendar</string>
+	<string>Allow Accuwa to access your calendar</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Allow Kitten Tricks to use the camera</string>
+	<string>Allow Accuwa to use the camera</string>
 	<key>NSContactsUsageDescription</key>
-	<string>Allow Kitten Tricks experiences to access your contacts</string>
+	<string>Allow Accuwa experiences to access your contacts</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Allow Kitten Tricks to use your location</string>
+	<string>Allow Accuwa to use your location</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Allow Kitten Tricks to use your location</string>
+	<string>Allow Accuwa to use your location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Allow Kitten Tricks to use your location</string>
+	<string>Allow Accuwa to use your location</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Allow Kitten Tricks to access your microphone</string>
+	<string>Allow Accuwa to access your microphone</string>
 	<key>NSMotionUsageDescription</key>
-	<string>Allow Kitten Tricks to access your device's accelerometer</string>
+	<string>Allow Accuwa to access your device's accelerometer</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Give Kitten Tricks periences permission to save photos</string>
+	<string>Give Accuwa periences permission to save photos</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Give Kitten Tricks periences permission to access your photos</string>
+	<string>Give Accuwa periences permission to access your photos</string>
 	<key>NSRemindersUsageDescription</key>
-	<string>Allow Kitten Tricks to access your reminders</string>
+	<string>Allow Accuwa to access your reminders</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>opensans-regular.ttf</string>

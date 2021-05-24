@@ -6,7 +6,6 @@ import {
   ThemeProvider,
   Toggle,
   TopNavigation,
-  TopNavigationAction,
 } from '@ui-kitten/components';
 import { ThemeCard } from './theme-card.component';
 import { SafeAreaLayout } from '../../components/safe-area-layout.component';
@@ -14,7 +13,6 @@ import { MappingContextValue, ThemeContextValue, Theming } from '../../services/
 import { ThemesService } from './themes.service';
 import { ThemeItem } from './type';
 import { appThemes } from '../../app/app-theming';
-import { MenuIcon } from '../../components/icons';
 import { RestartAppModal } from './restart-app-modal.component';
 
 export const ThemesScreen = ({ navigation }): React.ReactElement => {
@@ -55,12 +53,6 @@ export const ThemesScreen = ({ navigation }): React.ReactElement => {
     setRestartModalVisible(!restartModalVisible);
   };
 
-  const renderDrawerAction = (): React.ReactElement => (
-    <TopNavigationAction
-      icon={MenuIcon}
-      onPress={navigation.toggleDrawer}
-    />
-  );
 
   const renderItem = (info: ListRenderItemInfo<ThemeItem>): React.ReactElement => (
     <ThemeProvider theme={info.item.theme}>
@@ -89,8 +81,7 @@ export const ThemesScreen = ({ navigation }): React.ReactElement => {
       style={styles.safeArea}
       insets='top'>
       <TopNavigation
-        title='Kitten Tricks'
-        accessoryLeft={renderDrawerAction}
+        title='ACCUWA'
       />
       <Divider/>
       <List

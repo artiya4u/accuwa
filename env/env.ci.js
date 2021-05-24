@@ -1,7 +1,7 @@
 const path = require('path');
 
 /**
- * Runs on Kitten Tricks CI
+ * Runs on Accuwa CI
  * https://github.com/akveo/accuwa/blob/master/.github/workflows/publish-pr.yml
  */
 module.exports = {

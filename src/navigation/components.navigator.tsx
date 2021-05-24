@@ -10,7 +10,6 @@ import { CalendarScreen } from '../scenes/components/calendar/calendar.component
 import { CardScreen } from '../scenes/components/card/card.component';
 import { CheckBoxScreen } from '../scenes/components/checkbox/checkbox.component';
 import { DatepickerScreen } from '../scenes/components/datepicker/datepicker.component';
-import { DrawerScreen } from '../scenes/components/drawer/drawer.component';
 import { IconScreen } from '../scenes/components/icon/icon.component';
 import { InputScreen } from '../scenes/components/input/input.component';
 import { LayoutScreen } from '../scenes/components/layout/layout.component';
@@ -45,7 +44,6 @@ export const ComponentsNavigator = (): React.ReactElement => (
     <Stack.Screen name='Card' component={CardScreen}/>
     <Stack.Screen name='CheckBox' component={CheckBoxScreen}/>
     <Stack.Screen name='Datepicker' component={DatepickerScreen}/>
-    <Stack.Screen name='Drawer' component={DrawerScreen}/>
     <Stack.Screen name='Icon' component={IconScreen}/>
     <Stack.Screen name='Input' component={InputScreen}/>
     <Stack.Screen name='Layout' component={LayoutScreen}/>
