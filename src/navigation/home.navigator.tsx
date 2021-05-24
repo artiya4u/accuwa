@@ -4,8 +4,7 @@ import {
   BottomTabNavigationOptions,
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
-import { LayoutsNavigator } from './layouts.navigator';
-import { ComponentsNavigator } from './components.navigator';
+import { WatchesNavigator } from './watches.navigator';
 import { ThemesNavigator } from './themes.navigator';
 import { HomeBottomNavigation } from '../scenes/home/home-bottom-navigation.component';
 
@@ -15,7 +14,7 @@ const BottomTab = createBottomTabNavigator();
  * When dev is true in .expo/settings.json (started via `start:dev`),
  * open Components tab as default.
  */
-const initialTabRoute: string = __DEV__ ? 'Components' : 'Layouts';
+const initialTabRoute = 'Watches';
 
 const ROOT_ROUTES: string[] = ['Home', 'Layouts', 'Components', 'Themes'];
 
@@ -31,8 +30,7 @@ export const HomeTabsNavigator = (): React.ReactElement => (
     screenOptions={TabBarVisibilityOptions}
     initialRouteName={initialTabRoute}
     tabBar={props => <HomeBottomNavigation {...props} />}>
-    <BottomTab.Screen name='Layouts' component={LayoutsNavigator} />
-    <BottomTab.Screen name='Components' component={ComponentsNavigator} />
+    <BottomTab.Screen name='Watches' component={WatchesNavigator} />
     <BottomTab.Screen name='Themes' component={ThemesNavigator} />
   </BottomTab.Navigator>
 );

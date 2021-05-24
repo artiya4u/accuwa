@@ -56,10 +56,6 @@ export const HomeBottomNavigation: React.FC<BottomTabBarProps> = ({ navigation, 
           icon={LayoutIcon}
         />
         <BottomNavigationTab
-          title='Components'
-          icon={StarOutlineIcon}
-        />
-        <BottomNavigationTab
           title='Themes'
           icon={ColorPaletteIcon}
         />

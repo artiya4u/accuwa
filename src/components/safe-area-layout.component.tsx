@@ -11,6 +11,7 @@ import {
 
 type Inset = 'top' | 'bottom';
 
+// @ts-ignore
 export interface SafeAreaLayoutProps extends StyledComponentProps, LayoutProps {
   insets?: Inset;
   children?: React.ReactNode;

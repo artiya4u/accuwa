@@ -65,8 +65,7 @@ export default ({navigation, route}): React.ReactElement => {
       style={styles.container}
       insets='top'>
       <TopNavigation
-        leftControl={renderBackAction()}
-        titleStyle={styles.title}
+        accessoryLeft={renderBackAction}
         title={watch.brand + ' - ' + watch.model}
       />
       <Divider/>
@@ -77,30 +76,29 @@ export default ({navigation, route}): React.ReactElement => {
             <Layout style={{paddingLeft: 16}}>
               <Layout style={{flexDirection: 'row', alignItems: 'center'}}>
                 <Text category='h5' style={{marginRight: 8}}>{watch.brand}</Text>
-                <Icon name='more-horizontal-outline' width={24} height={24}/>
               </Layout>
               <Text category='h6'>{watch.model}</Text>
-              <Text category='p1'>{watch.description}</Text>
+              <Text category='s1' appearance='hint' style={{width: '50%'}}>{watch.description}</Text>
             </Layout>
           </Layout>
         </Layout>
         <Divider/>
-        <Layout style={{paddingVertical: 16, flexDirection: 'row', justifyContent: 'space-evenly'}}>
+        <Layout style={{paddingVertical: 8, flexDirection: 'row', justifyContent: 'space-evenly'}}>
           <Layout style={{alignItems: 'center'}}>
-            <Text category='h6'>
+            <Text category='h5'>
               {WatchService.formatRate(WatchService.getAverageRate(watch.records).rates[0])} s/d
             </Text>
-            <Text category='p1'>rate</Text>
+            <Text category='h6'>rate</Text>
           </Layout>
           <Layout style={{alignItems: 'center'}}>
-            <Text category='h6'>
+            <Text category='h5'>
               {WatchService.formatRate(WatchService.getAverageRate(watch.records).avg)} s/d
             </Text>
-            <Text category='p1'>avg. rate</Text>
+            <Text category='h6'>avg. rate</Text>
           </Layout>
           <Layout style={{alignItems: 'center'}}>
-            <Text category='h6'>{WatchService.formatRate(watch.records[0].secondDif)} s</Text>
-            <Text category='p1'>div</Text>
+            <Text category='h5'>{WatchService.formatRate(watch.records[0].secondDif)} s</Text>
+            <Text category='h6'>div</Text>
           </Layout>
         </Layout>
         <Divider/>
