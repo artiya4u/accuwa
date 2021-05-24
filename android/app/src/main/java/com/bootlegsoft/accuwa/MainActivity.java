@@ -8,7 +8,7 @@ import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
 import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
-import com.bootlegsoft.accuwa.packages.splash.SplashScreen;
+import com.bootlegsoft.accuwa.splash.SplashScreen;
 
 public class MainActivity extends ReactActivity {
 

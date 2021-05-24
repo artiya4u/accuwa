@@ -1,4 +1,4 @@
-package com.bootlegsoft.accuwa.packages.splash;
+package com.bootlegsoft.accuwa.splash;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;

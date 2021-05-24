@@ -1,10 +1,10 @@
-package com.bootlegsoft.accuwa.packages.splash;
+package com.bootlegsoft.accuwa.splash;
 
 import android.os.Handler;
 
 import androidx.annotation.Nullable;
 
-import com.bootlegsoft.accuwa.packages.splash.animations.SplashAnimator;
+import com.bootlegsoft.accuwa.splash.animations.SplashAnimator;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;

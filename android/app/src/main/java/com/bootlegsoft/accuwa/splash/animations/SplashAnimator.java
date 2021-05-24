@@ -1,4 +1,4 @@
-package com.bootlegsoft.accuwa.packages.splash.animations;
+package com.bootlegsoft.accuwa.splash.animations;
 
 import android.view.animation.Animation;
 import androidx.annotation.IntDef;

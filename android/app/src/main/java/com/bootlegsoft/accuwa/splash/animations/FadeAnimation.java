@@ -1,4 +1,4 @@
-package com.bootlegsoft.accuwa.packages.splash.animations;
+package com.bootlegsoft.accuwa.splash.animations;
 
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -7,7 +7,7 @@ public class FadeAnimation implements SplashAnimation {
 
   public static final int ID = 1;
 
-  @Override public Animation create(Config config) {
+  @Override public Animation create(SplashAnimation.Config config) {
     AlphaAnimation animation = new AlphaAnimation(1, 0);
     animation.setDuration(config.duration);
 

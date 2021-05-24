@@ -1,4 +1,4 @@
-package com.bootlegsoft.accuwa.packages.splash.animations;
+package com.bootlegsoft.accuwa.splash.animations;
 
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -8,7 +8,7 @@ public class ScaleAnimation implements SplashAnimation {
 
   public static final int ID = 2;
 
-  @Override public Animation create(Config config) {
+  @Override public Animation create(SplashAnimation.Config config) {
     AnimationSet animationSet = new AnimationSet(true);
 
     animationSet.addAnimation(this.createFadeAnimation(config));
@@ -17,14 +17,14 @@ public class ScaleAnimation implements SplashAnimation {
     return animationSet;
   }
 
-  private Animation createFadeAnimation(Config config) {
+  private Animation createFadeAnimation(SplashAnimation.Config config) {
     AlphaAnimation animation = new AlphaAnimation(1, 0);
     animation.setDuration(config.duration);
 
     return animation;
   }
 
-  private Animation createScaleAnimation(Config config) {
+  private Animation createScaleAnimation(SplashAnimation.Config config) {
     android.view.animation.ScaleAnimation scaleAnimation = new android.view.animation.ScaleAnimation(
       1,
       1.5f,

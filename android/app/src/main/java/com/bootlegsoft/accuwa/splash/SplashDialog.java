@@ -1,4 +1,4 @@
-package com.bootlegsoft.accuwa.packages.splash;
+package com.bootlegsoft.accuwa.splash;
 
 import android.app.Dialog;
 import android.content.Context;

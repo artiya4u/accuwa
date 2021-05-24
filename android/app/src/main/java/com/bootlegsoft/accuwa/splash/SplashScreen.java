@@ -1,17 +1,17 @@
-package com.bootlegsoft.accuwa.packages.splash;
+package com.bootlegsoft.accuwa.splash;
 
 import android.app.Activity;
 import android.view.animation.Animation;
 import androidx.annotation.Nullable;
 
-import com.bootlegsoft.accuwa.packages.splash.animations.SplashAnimation;
-import com.bootlegsoft.accuwa.packages.splash.animations.SplashAnimator;
+import com.bootlegsoft.accuwa.splash.animations.SplashAnimation;
+import com.bootlegsoft.accuwa.splash.animations.SplashAnimator;
 
 import java.lang.ref.WeakReference;
 
 public class SplashScreen implements Animation.AnimationListener {
 
-  private WeakReference<SplashDialog> splashViewHolder;
+  public WeakReference<SplashDialog> splashViewHolder;
 
   public static SplashScreen getInstance() {
     return InstanceHolder.INSTANCE;
@@ -75,7 +75,7 @@ public class SplashScreen implements Animation.AnimationListener {
     this.splashViewHolder.get().getContentView().startAnimation(animation);
   }
 
-  private static final class InstanceHolder {
+  public static final class InstanceHolder {
     private static final SplashScreen INSTANCE = new SplashScreen();
   }
 }

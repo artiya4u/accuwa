@@ -67,6 +67,7 @@
     "react-native-screens": "~2.15.2",
     "react-native-svg": "12.1.0",
     "react-native-tab-view": "^2.13.0",
+    "react-native-unimodules": "^0.13.3",
     "react-native-web": "^0.15.0"
   },
   "devDependencies": {
