@@ -2,8 +2,8 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Divider, TopNavigation } from '@ui-kitten/components';
 import { SafeAreaLayout } from '../../components/safe-area-layout.component';
-import { MenuGridList } from '../../components/menu-grid-list.component';
 import { data } from './data';
+import ContentView from '../../layouts/feed/feed';
 
 export const LayoutsScreen = (props): React.ReactElement => {
 
@@ -18,11 +18,8 @@ export const LayoutsScreen = (props): React.ReactElement => {
       <TopNavigation
         title='ACCUWA'
       />
-      <Divider/>
-      <MenuGridList
-        data={data}
-        onItemPress={onItemPress}
-      />
+      <Divider style={{marginBottom: 8}}/>
+      <ContentView navigation={props.navigation}/>
     </SafeAreaLayout>
   );
 };
