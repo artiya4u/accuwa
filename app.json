@@ -1,0 +1,41 @@
+{
+  "expo": {
+    "name": "Accuwa",
+    "slug": "accuwa",
+    "version": "2.0.0",
+    "description": "Photograph Watch Check",
+    "githubUrl": "https://github.com/artiya4u/accuwa",
+    "ios": {
+      "bundleIdentifier": "com.bootlegsoft.accuwa",
+      "appStoreUrl": "https://itunes.apple.com/us/app/accuwa/id1234567890",
+      "buildNumber": "3"
+    },
+    "android": {
+      "package": "com.bootlegsoft.accuwa",
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.bootlegsoft.accuwa",
+      "versionCode": 3
+    },
+    "privacy": "public",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "icon": "./src/assets/images/image-app-icon.png",
+    "splash": {
+      "image": "src/assets/images/image-splash.png",
+      "resizeMode": "contain"
+    },
+    "assetBundlePatterns": [
+      "src/assets/images/*",
+      "src/assets/fonts",
+      "src/layouts/**/assets/*"
+    ],
+    "androidStatusBar": {
+      "barStyle": "dark-content",
+      "backgroundColor": "#F7F9FC"
+    },
+    "entryPoint": "node_modules/expo/AppEntry.js"
+  }
+}
