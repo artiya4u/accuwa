@@ -106,7 +106,6 @@ export const CaptureScreen = ({navigation, route}): React.ReactElement => {
         });
         clock.syncTime(function (success) {
           if (success) {
-            console.log('setDrift');
             const localTime = new Date().getTime();
             const syncTime = clock.getTime();
             const timeDrift = localTime - parseInt(syncTime, 10);
@@ -116,7 +115,6 @@ export const CaptureScreen = ({navigation, route}): React.ReactElement => {
         });
       } catch (e) {
         // Ignore this error in Expo
-        console.log(e);
       }
       const {status} = await Camera.requestPermissionsAsync();
       setHasPermission(status === 'granted');
