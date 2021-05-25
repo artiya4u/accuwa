@@ -9,7 +9,7 @@ export async function WatchesLoad() {
   if (watchListStore === null) {
     watchListStore = [];
   }
-  let loadedWatchList = [];
+  const loadedWatchList = [];
   for (const watchKey of watchListStore) {
     const watchStr = await AsyncStorage.getItem(`WATCH:${watchKey}`);
     const w = JSON.parse(watchStr);
@@ -39,7 +39,6 @@ export async function WatchesLoad() {
     );
     loadedWatchList.push(watch);
   }
-  loadedWatchList = loadedWatchList.reverse();
   return loadedWatchList;
 }
 
