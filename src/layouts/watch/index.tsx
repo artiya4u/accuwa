@@ -78,7 +78,7 @@ export default ({navigation, route}): React.ReactElement => {
                 <Text category='h5' style={{marginRight: 8}}>{watch.brand}</Text>
               </Layout>
               <Text category='h6'>{watch.model}</Text>
-              <Text category='s1' appearance='hint' style={{width: '50%'}}>{watch.description}</Text>
+              <Text category='s1' appearance='hint'>{watch.description}</Text>
             </Layout>
           </Layout>
         </Layout>

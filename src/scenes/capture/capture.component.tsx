@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import * as ImageManipulator from 'expo-image-manipulator';
+import clockSync from 'react-native-clock-sync';
 import {Dimensions, ImageStyle, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {TopNavigation, TopNavigationAction, Text, IconElement, Icon, Divider} from '@ui-kitten/components';
 import {SafeAreaLayout} from '../../components/safe-area-layout.component';
@@ -16,6 +17,8 @@ export const CaptureScreen = ({navigation, route}): React.ReactElement => {
   const [type, setType] = useState(Camera.Constants.Type.back);
   const [loading, setLoading] = useState(false);
   const [camera, setCamera] = useState(null);
+
+  const [drift, setDrift] = useState(0);
 
   // Screen Ratio and image padding
   const [imagePadding, setImagePadding] = useState(0);
@@ -41,7 +44,7 @@ export const CaptureScreen = ({navigation, route}): React.ReactElement => {
             subSec = data.exif.SubSecTime.substring(0, 3);
           }
           const tStamp = moment(data.exif.DateTimeDigitized + '.' + subSec, 'YYYY:MM:DD HH:mm:ss.SSS');
-          const timestamp = tStamp.toDate().getTime() - cameraDelayMillis;
+          const timestamp = tStamp.toDate().getTime() - cameraDelayMillis - drift; // Use drift time from NTP
           let imageShortSide = data.width;
           if (data.width > data.height) {
             imageShortSide = data.height; // ignore orientation
@@ -89,6 +92,31 @@ export const CaptureScreen = ({navigation, route}): React.ReactElement => {
 
   useEffect(() => {
     (async () => {
+      const localTimeBeforeSync = new Date().getTime();
+      try {
+        const servers = [
+          'time.google.com',
+          'time.cloudflare.com',
+          'time.facebook.com',
+        ];
+        const clock = new clockSync({
+          syncDelay: 5,
+          cycleServers: true,
+          servers: servers,
+        });
+        clock.syncTime(function (success) {
+          if (success) {
+            const localTime = new Date().getTime();
+            const syncTime = clock.getTime();
+            const timeDrift = localTime - parseInt(syncTime, 10);
+            setDrift(timeDrift);
+            clock.setOnline(false);
+          }
+        });
+      } catch (e) {
+        // Ignore this error in Expo
+        console.log(e);
+      }
       const {status} = await Camera.requestPermissionsAsync();
       setHasPermission(status === 'granted');
     })();
