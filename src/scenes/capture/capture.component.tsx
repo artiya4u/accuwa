@@ -106,6 +106,7 @@ export const CaptureScreen = ({navigation, route}): React.ReactElement => {
         });
         clock.syncTime(function (success) {
           if (success) {
+            console.log('setDrift');
             const localTime = new Date().getTime();
             const syncTime = clock.getTime();
             const timeDrift = localTime - parseInt(syncTime, 10);

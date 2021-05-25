@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Dimensions, Image, Slider, StyleSheet, TouchableOpacity} from 'react-native';
-import {TopNavigation, TopNavigationAction, Text, Layout, Divider} from '@ui-kitten/components';
+import {TopNavigation, TopNavigationAction, Text, Layout, Divider, Icon, Button} from '@ui-kitten/components';
 import {SafeAreaLayout} from '../../components/safe-area-layout.component';
 import {ArrowIosBackIcon} from '../../components/icons';
 
@@ -14,7 +14,7 @@ export const DialScreen = ({navigation, route}): React.ReactElement => {
 
   const setTimeDif = (value: number) => {
     setSecondDif(value);
-    setTimestampOnTheDial(timestampOfPhoto + secondDif * 1000);
+    setTimestampOnTheDial(timestampOfPhoto + value * 1000);
   };
 
   const finishImage = () => {
@@ -41,6 +41,21 @@ export const DialScreen = ({navigation, route}): React.ReactElement => {
     />
   );
 
+  const renderDownIcon = (props) => (
+    <Icon
+      {...props}
+      animation='zoom'
+      name='chevron-left-outline'
+    />
+  );
+
+  const renderUpIcon = (props) => (
+    <Icon
+      {...props}
+      animation='zoom'
+      name='chevron-right-outline'
+    />
+  );
   const renderNextAction = (): React.ReactElement => (
     <TouchableOpacity
       onPress={finishImage}>
@@ -65,20 +80,30 @@ export const DialScreen = ({navigation, route}): React.ReactElement => {
       }}/>
       <Layout style={styles.readTimeContainer}>
         <Text category='h6'>Time On The Dial</Text>
-        <Layout style={{flexDirection: 'row'}}>
+        <Layout style={{flexDirection: 'row', alignItems: 'center'}}>
+          <TouchableOpacity onPress={() => {
+            setTimeDif(secondDif - 0.1);
+          }}>
+            <Icon name='chevron-left-outline' width={48} height={48} fill='#212b46'/>
+          </TouchableOpacity>
           <Text category='h1'>{timeOnTheDial.getHours().toFixed(0).padStart(2, '0')}:</Text>
           <Text category='h1'>{timeOnTheDial.getMinutes().toFixed(0).padStart(2, '0')}:</Text>
           <Text
             category='h1'>{seconds.toFixed(1).padStart(4, '0')}
           </Text>
+          <TouchableOpacity onPress={() => {
+            setTimeDif(secondDif + 0.1);
+          }}>
+            <Icon name='chevron-right-outline' width={48} height={48} fill='#212b46'/>
+          </TouchableOpacity>
         </Layout>
-        <Text category='h5'>{diffString}</Text>
+        <Text category='h5' style={{paddingHorizontal: 8}}>{diffString}</Text>
         <Slider
           style={{width: width, height: 40, marginTop: 32}}
           minimumValue={-50}
           maximumValue={50}
           step={0.1}
-          value={0}
+          value={secondDif}
           onValueChange={value => setTimeDif(value)}
           minimumTrackTintColor='#192038'
           maximumTrackTintColor='#192038'
@@ -108,5 +133,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     paddingTop: 16,
+  },
+  button: {
+    margin: 2,
   },
 });
