@@ -146,7 +146,7 @@ export const CaptureScreen = ({navigation, route}): React.ReactElement => {
       style={styles.container}
       insets='top'>
       <TopNavigation
-        title='Capture'
+        title='Capture The Watch Dial'
         accessoryLeft={renderBackAction}
       />
       <Divider/>

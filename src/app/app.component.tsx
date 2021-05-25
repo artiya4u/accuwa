@@ -14,6 +14,8 @@ import { Mapping, Theme, Theming } from '../services/theme.service';
 
 const loadingTasks: Task[] = [
   () => LoadFontsTask({
+    'HelveticaNeue-Medium': require('../assets/fonts/HelveticaNeue-Medium.ttf'),
+    'HelveticaNeue-Regular': require('../assets/fonts/HelveticaNeue-Regular.ttf'),
     'opensans-regular': require('../assets/fonts/opensans-regular.ttf'),
     'roboto-regular': require('../assets/fonts/roboto-regular.ttf'),
   }),
