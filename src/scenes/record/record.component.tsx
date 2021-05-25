@@ -7,10 +7,10 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {TopNavigation, TopNavigationAction, Text, Layout, Input, Toggle, Divider} from '@ui-kitten/components';
 import {SafeAreaLayout} from '../../components/safe-area-layout.component';
 import {ArrowIosBackIcon} from '../../components/icons';
+import {SaveWatchRecord} from '../../services/watches.service';
 
 const {width} = Dimensions.get('window');
 
@@ -27,29 +27,20 @@ export const RecordScreen = ({navigation, route}): React.ReactElement => {
     setChecked(isChecked);
   };
 
-  const saveWatch = async () => {
-    try {
-      const record = {
-        imageUri: route.params.imageUri,
-        timestampOfPhoto: timestampOfPhoto,
-        timestampOnTheDial: timestampOnTheDial,
-        secondDif: secondDif,
-        createdAt: new Date().getTime(),
-        newPeriod: checked,
-        note: note,
-      };
-      const watchKey = route.params.watchKey;
-      const watchRecordStr = await AsyncStorage.getItem(`RECORD:${watchKey}`);
-      let watchRecords = JSON.parse(watchRecordStr);
-      if (watchRecords === null) {
-        watchRecords = [];
-      }
-      watchRecords.push(record);
-      await AsyncStorage.setItem(`RECORD:${watchKey}`, JSON.stringify(watchRecords));
+  const saveWatchRecord = async () => {
+    const record = {
+      watchKey: route.params.watchKey,
+      imageUri: route.params.imageUri,
+      timestampOfPhoto: timestampOfPhoto,
+      timestampOnTheDial: timestampOnTheDial,
+      secondDif: secondDif,
+      createdAt: new Date().getTime(),
+      newPeriod: checked,
+      note: note,
+    };
+    SaveWatchRecord(record).then(function () {
       navigation.navigate('Watches');
-    } catch (error) {
-      // Error saving data
-    }
+    });
   };
 
   const renderBackAction = (): React.ReactElement => (
@@ -61,7 +52,7 @@ export const RecordScreen = ({navigation, route}): React.ReactElement => {
 
   const renderNextAction = (): React.ReactElement => (
     <TouchableOpacity
-      onPress={saveWatch}>
+      onPress={saveWatchRecord}>
       <Text category='h6' style={{marginRight: 16}}>Save</Text>
     </TouchableOpacity>
   );

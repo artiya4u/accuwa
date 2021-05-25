@@ -3,7 +3,6 @@ import {
   Dimensions,
   Image, ImageBackground, ListRenderItemInfo,
   ScrollView,
-  StyleSheet,
 } from 'react-native';
 import {
   TopNavigation,
@@ -11,7 +10,7 @@ import {
   Text,
   Layout,
   Divider,
-  Icon, StyleService,
+  StyleService,
 } from '@ui-kitten/components';
 import {SafeAreaLayout} from '../../components/safe-area-layout.component';
 import {ArrowIosBackIcon} from '../../components/icons';
@@ -70,17 +69,17 @@ export default ({navigation, route}): React.ReactElement => {
       />
       <Divider/>
       <ScrollView>
-        <Layout style={{padding: 16}}>
+        <Layout style={{paddingHorizontal: 16, paddingTop: 16}}>
           <Layout style={{flexDirection: 'row'}}>
             <Image style={styles.watchImage} source={watch.photo}/>
             <Layout style={{paddingLeft: 16}}>
-              <Layout style={{flexDirection: 'row', alignItems: 'center'}}>
-                <Text category='h5' style={{marginRight: 8}}>{watch.brand}</Text>
-              </Layout>
+              <Text category='h5' style={{marginRight: 8}}>{watch.brand}</Text>
               <Text category='h6'>{watch.model}</Text>
-              <Text category='s1' appearance='hint'>{watch.description}</Text>
             </Layout>
           </Layout>
+        </Layout>
+        <Layout style={{paddingHorizontal: 16, paddingTop: 16, paddingBottom: 8}}>
+          <Text category='p1'>{watch.description}</Text>
         </Layout>
         <Divider/>
         <Layout style={{paddingVertical: 8, flexDirection: 'row', justifyContent: 'space-evenly'}}>
@@ -88,7 +87,7 @@ export default ({navigation, route}): React.ReactElement => {
             <Text category='h5'>
               {WatchService.formatRate(WatchService.getAverageRate(watch.records).rates[0])} s/d
             </Text>
-            <Text category='h6'>rate</Text>
+            <Text category='h6'>last rate</Text>
           </Layout>
           <Layout style={{alignItems: 'center'}}>
             <Text category='h5'>

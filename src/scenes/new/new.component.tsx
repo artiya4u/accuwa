@@ -6,10 +6,10 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {TopNavigation, TopNavigationAction, Text, Layout, Input, Divider} from '@ui-kitten/components';
 import {SafeAreaLayout} from '../../components/safe-area-layout.component';
 import {ArrowIosBackIcon} from '../../components/icons';
+import {SaveNewWatch} from '../../services/watches.service';
 
 export const NewWatchScreen = ({navigation, route}): React.ReactElement => {
 
@@ -22,38 +22,27 @@ export const NewWatchScreen = ({navigation, route}): React.ReactElement => {
   const [about, setAbout] = useState<string>();
 
   const saveWatch = async () => {
-    try {
-      const newWatch = {
-        brand: brand,
-        model: model,
-        about: about,
-        imageUri: route.params.imageUri,
-        createdAt: new Date().getTime(),
-      };
-      const check = {
-        imageUri: route.params.imageUri,
-        timestampOfPhoto: timestampOfPhoto,
-        timestampOnTheDial: timestampOnTheDial,
-        secondDif: secondDif,
-        createdAt: new Date().getTime(),
-        newPeriod: true,
-        note: '',
-      };
-      const watchKey = `${brand}:${model}`;
-      await AsyncStorage.setItem(`WATCH:${watchKey}`, JSON.stringify(newWatch));
-      await AsyncStorage.setItem(`RECORD:${watchKey}`, JSON.stringify([check]));
-      const watchListStr = await AsyncStorage.getItem(`WATCHLIST`);
-      let watchList = JSON.parse(watchListStr);
-      if (watchList === null) {
-        watchList = [];
-      }
-      watchList.push(watchKey);
-      await AsyncStorage.setItem(`WATCHLIST`, JSON.stringify(watchList));
-
+    const newWatch = {
+      watchKey: `${brand}:${model}`,
+      brand: brand,
+      model: model,
+      about: about,
+      imageUri: route.params.imageUri,
+      createdAt: new Date().getTime(),
+    };
+    const record = {
+      watchKey: newWatch.watchKey,
+      imageUri: route.params.imageUri,
+      timestampOfPhoto: timestampOfPhoto,
+      timestampOnTheDial: timestampOnTheDial,
+      secondDif: secondDif,
+      createdAt: new Date().getTime(),
+      newPeriod: true,
+      note: '',
+    };
+    SaveNewWatch(newWatch, record).then(function () {
       navigation.navigate('Watches');
-    } catch (error) {
-      // Error saving data
-    }
+    });
   };
 
   const renderBackAction = (): React.ReactElement => (
