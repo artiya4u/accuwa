@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
-import {Dimensions, Image, Slider, StyleSheet, TouchableOpacity} from 'react-native';
+import {Dimensions, StyleSheet, TouchableOpacity} from 'react-native';
+import Slider from '@react-native-community/slider';
 import {TopNavigation, TopNavigationAction, Text, Layout, Divider, Icon, Button} from '@ui-kitten/components';
 import {SafeAreaLayout} from '../../components/safe-area-layout.component';
 import {ArrowIosBackIcon} from '../../components/icons';
+import PhotoView from 'react-native-photo-view-ex';
 
 const {width} = Dimensions.get('window');
 
@@ -75,9 +77,13 @@ export const DialScreen = ({navigation, route}): React.ReactElement => {
         accessoryRight={renderNextAction}
       />
       <Divider/>
-      <Image style={styles.watchImage} source={{
-        uri: route.params.imageUri,
-      }}/>
+      <PhotoView
+        source={{uri: route.params.imageUri}}
+        minimumZoomScale={1}
+        maximumZoomScale={3}
+        resizeMode='center'
+        style={{width: width, height: width}}
+      />
       <Layout style={styles.readTimeContainer}>
         <Text category='h6'>Time On The Dial</Text>
         <Layout style={{flexDirection: 'row', alignItems: 'center'}}>
@@ -103,7 +109,7 @@ export const DialScreen = ({navigation, route}): React.ReactElement => {
           minimumValue={-50}
           maximumValue={50}
           step={0.1}
-          value={secondDif}
+          value={0}
           onValueChange={value => setTimeDif(value)}
           minimumTrackTintColor='#192038'
           maximumTrackTintColor='#192038'

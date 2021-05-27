@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import {
   Dimensions,
-  Image,
   StyleSheet,
 } from 'react-native';
 import {TopNavigation, TopNavigationAction, Layout, Divider} from '@ui-kitten/components';
 import {SafeAreaLayout} from '../../components/safe-area-layout.component';
 import {ArrowIosBackIcon, TrashIcon} from '../../components/icons';
 import {DeleteWatchRecord} from '../../services/watches.service';
+import PhotoView from 'react-native-photo-view-ex';
 
 const {width} = Dimensions.get('window');
 
@@ -42,9 +42,13 @@ export const PreviewScreen = ({navigation, route}): React.ReactElement => {
       />
       <Divider/>
       <Layout style={{alignItems: 'center'}}>
-        <Image style={styles.watchImage} source={{
-          uri: route.params.imageUri,
-        }}/>
+      <PhotoView
+        source={{uri: route.params.imageUri}}
+        minimumZoomScale={1}
+        maximumZoomScale={3}
+        resizeMode='center'
+        style={{width: width, height: width}}
+      />
       </Layout>
     </SafeAreaLayout>
   );
@@ -53,7 +57,6 @@ export const PreviewScreen = ({navigation, route}): React.ReactElement => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
   },
   title: {
     fontSize: 20,
