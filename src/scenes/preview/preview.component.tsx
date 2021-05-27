@@ -58,9 +58,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  title: {
-    fontSize: 20,
-  },
   labelText: {
     fontSize: 16,
     color: '#192038',
@@ -68,21 +65,5 @@ const styles = StyleSheet.create({
   watchImage: {
     width: width,
     height: width,
-  },
-  form: {
-    flex: 1,
-    paddingHorizontal: 16,
-    paddingVertical: 16,
-  },
-  toggleRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginVertical: 8,
-    paddingHorizontal: 16,
-    alignItems: 'center',
-  },
-  input: {
-    marginHorizontal: 16,
-    marginVertical: 8,
   },
 });
