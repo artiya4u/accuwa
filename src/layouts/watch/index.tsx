@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {
   Dimensions,
   Image, ImageBackground, ListRenderItemInfo,
-  ScrollView,
+  ScrollView, TouchableOpacity,
 } from 'react-native';
 import {
   TopNavigation,
@@ -26,6 +26,9 @@ export default ({navigation, route}): React.ReactElement => {
   const watchRecords = [];
   const watchRecordsTitle = [];
   let records = [];
+  if (watch.records.length > 0) { // Prevent deleted first new record.
+    watch.records[watch.records.length - 1].newPeriod = true;
+  }
   for (const r of watch.records) {
     records.push(r);
     if (r.newPeriod) {
@@ -46,10 +49,14 @@ export default ({navigation, route}): React.ReactElement => {
   }
 
   const renderPostItem = (info: ListRenderItemInfo<RecordModel>): React.ReactElement => (
-    <ImageBackground
-      style={styles.postItem}
-      source={{uri: info.item.imageUri}}
-    />
+    <TouchableOpacity onPress={function () {
+      navigation.navigate('Preview', info.item);
+    }}>
+      <ImageBackground
+        style={styles.postItem}
+        source={{uri: info.item.imageUri}}
+      />
+    </TouchableOpacity>
   );
 
   const renderBackAction = (): React.ReactElement => (
@@ -58,6 +65,13 @@ export default ({navigation, route}): React.ReactElement => {
       onPress={navigation.goBack}
     />
   );
+
+  const getDiv = () => {
+    if (watch.records.length === 0) {
+      return '-';
+    }
+    return WatchService.formatRate(watch.records[0].secondDif);
+  };
 
   return (
     <SafeAreaLayout
@@ -85,18 +99,18 @@ export default ({navigation, route}): React.ReactElement => {
         <Layout style={{paddingVertical: 8, flexDirection: 'row', justifyContent: 'space-evenly'}}>
           <Layout style={{alignItems: 'center'}}>
             <Text category='h5'>
-              {WatchService.formatRate(WatchService.getAverageRate(watch.records).rates[0])} s/d
-            </Text>
-            <Text category='h6'>last rate</Text>
-          </Layout>
-          <Layout style={{alignItems: 'center'}}>
-            <Text category='h5'>
               {WatchService.formatRate(WatchService.getAverageRate(watch.records).avg)} s/d
             </Text>
             <Text category='h6'>avg. rate</Text>
           </Layout>
           <Layout style={{alignItems: 'center'}}>
-            <Text category='h5'>{WatchService.formatRate(watch.records[0].secondDif)} s</Text>
+            <Text category='h5'>
+              {WatchService.formatRate(WatchService.getAverageRate(watch.records).rates[0])} s/d
+            </Text>
+            <Text category='h6'>last rate</Text>
+          </Layout>
+          <Layout style={{alignItems: 'center'}}>
+            <Text category='h5'>{getDiv()} s</Text>
             <Text category='h6'>div</Text>
           </Layout>
         </Layout>

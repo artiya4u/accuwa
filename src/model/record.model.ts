@@ -1,6 +1,7 @@
 export class RecordModel {
 
   constructor(
+    readonly watchKey: string,
     readonly imageUri: string,
     readonly timestampOfPhoto: number,
     readonly timestampOnTheDial: number,

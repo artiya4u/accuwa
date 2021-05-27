@@ -81,7 +81,7 @@ export const DialScreen = ({navigation, route}): React.ReactElement => {
       <Layout style={styles.readTimeContainer}>
         <Text category='h6'>Time On The Dial</Text>
         <Layout style={{flexDirection: 'row', alignItems: 'center'}}>
-          <TouchableOpacity onPress={() => {
+          <TouchableOpacity style={{marginRight: 16}} onPress={() => {
             setTimeDif(secondDif - 0.1);
           }}>
             <Icon name='chevron-left-outline' width={48} height={48} fill='#212b46'/>
@@ -91,7 +91,7 @@ export const DialScreen = ({navigation, route}): React.ReactElement => {
           <Text
             category='h1'>{seconds.toFixed(1).padStart(4, '0')}
           </Text>
-          <TouchableOpacity onPress={() => {
+          <TouchableOpacity style={{marginLeft: 16}} onPress={() => {
             setTimeDif(secondDif + 0.1);
           }}>
             <Icon name='chevron-right-outline' width={48} height={48} fill='#212b46'/>

@@ -6,6 +6,7 @@ import {DialScreen} from '../scenes/dial/dial.component';
 import {NewWatchScreen} from '../scenes/new/new.component';
 import {RecordScreen} from '../scenes/record/record.component';
 import {WatchScreen} from '../scenes/watch/watch.component';
+import {PreviewScreen} from '../scenes/preview/preview.component';
 
 const Stack = createStackNavigator();
 
@@ -17,5 +18,6 @@ export const WatchesNavigator = (): React.ReactElement => (
     <Stack.Screen name='New' component={NewWatchScreen}/>
     <Stack.Screen name='Record' component={RecordScreen}/>
     <Stack.Screen name='Watch' component={WatchScreen}/>
+    <Stack.Screen name='Preview' component={PreviewScreen}/>
   </Stack.Navigator>
 );

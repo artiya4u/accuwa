@@ -18,6 +18,7 @@ export async function WatchesLoad() {
     const res = [];
     for (const r of records) {
       res.push(new RecordModel(
+        w.watchKey,
         r.imageUri,
         r.timestampOfPhoto,
         r.timestampOnTheDial,
@@ -64,4 +65,15 @@ export async function SaveNewWatch(watch, record) {
   await AsyncStorage.setItem(`WATCHLIST`, JSON.stringify(watchList));
 }
 
+export async function DeleteWatchRecord(record) {
+  const watchRecordStr = await AsyncStorage.getItem(`RECORD:${record.watchKey}`);
+  let watchRecords = JSON.parse(watchRecordStr);
+  if (watchRecords === null) {
+    watchRecords = [];
+  }
+  const filtered = watchRecords.filter(function(value, index, arr) {
+    return value.timestampOfPhoto !== record.timestampOfPhoto;
+  });
+  await AsyncStorage.setItem(`RECORD:${record.watchKey}`, JSON.stringify(filtered));
+}
 
